@@ -12,17 +12,9 @@ function MessagesList() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    // const interval = setInterval(() => {
-    //   (user && tel) && dispatch(refreshChat({idInstance: user.idInstance, apiTokenInstance: user.apiTokenInstance, tel: tel}));
-    //   console.log('dispatch');
-    // }, 5000);
-
-    // testing variant
     if (!notificationIsReceiving) {
       (user && tel) && dispatch(refreshChat({idInstance: user.idInstance, apiTokenInstance: user.apiTokenInstance, tel: tel}));
     }
-
-    // return () => clearInterval(interval);
   }, [notificationIsReceiving, chat])
 
   return (

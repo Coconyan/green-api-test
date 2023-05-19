@@ -1,7 +1,8 @@
 import { useState } from "react";
+import './chat-form.css'
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import { fetchStateInstance, sendMessage } from "../../store/api-actions";
-import { getChat, getError, getTel, getUser } from "../../store/data/selectors";
+import { sendMessage } from "../../store/api-actions";
+import { getError, getTel, getUser } from "../../store/data/selectors";
 import { setTel } from "../../store/data/data";
 import MessagesList from "../messages-list/messages-list";
 
@@ -51,13 +52,14 @@ function ChatForm() {
             <form
               action=""
               onSubmit={handleMessageSubmit}
-              className="login-form"
+              className="chat-form"
             >
               <MessagesList />
-              {error && <span className="error">Error</span>}
-              <input type="string" name="message" placeholder="message" />
+              <div className="chat-form__wrapper">
+                <input type="string" name="message" placeholder="message" />
 
-              <button type="submit">Send message</button>
+                <button type="submit">Send message</button>
+              </div>
             </form>
           )
       }

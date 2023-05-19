@@ -31,3 +31,18 @@
   box-shadow: 0 6px 18px rgba(10, 20, 26, .05);
 }
 
+input {
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 15px 15px; 
+}
+
+button {
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #00A884;
+  color: white;
+}

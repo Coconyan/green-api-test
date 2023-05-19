@@ -26,8 +26,8 @@ function LoginForm() {
       className="login-form"
     >
       {error && <span className="error">Error</span>}
-      <input type="text" name="id" placeholder="id" defaultValue={'1101822532'} />
-      <input type="text" name="apiToken" placeholder="apiToken" defaultValue={'9f43154cf1cc4049bf3b0a47b9e9183270c0e0cce7f84f5b9a'} />
+      <input type="text" name="id" placeholder="id" />
+      <input type="text" name="apiToken" placeholder="apiToken" />
 
       <button type="submit">Sign in</button>
 

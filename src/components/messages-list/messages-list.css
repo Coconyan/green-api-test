@@ -1,5 +1,10 @@
 .messages-list {
   height: 60%;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
   overflow: auto;
   width: 100%;
   display: flex;
