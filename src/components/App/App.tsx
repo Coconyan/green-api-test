@@ -1,12 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import LoginForm from '../login-form/login-form';
+import { useAppSelector } from '../../hooks';
+import { getUser } from '../../store/data/selectors';
+import ChatForm from '../chat-form/chat-form';
 
 function App() {
+  const user = useAppSelector(getUser);
+
   return (
     <div className="App">
-      <header className="App-header">
-        Hello, its test green api app
+      <div className="App-green-line" />
+      <header className="App-content">
+        {!user
+          ? <LoginForm />
+          : <ChatForm />}
       </header>
     </div>
   );
