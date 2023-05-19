@@ -33,11 +33,10 @@ export const sendMessage = createAsyncThunk<void, { idInstance: string, apiToken
   'data/sendMessage',
   async (_arg, { dispatch, extra: api }) => {
     try {
-      const { data } = await api.post<any>(`/waInstance${_arg.idInstance}/sendMessage/${_arg.apiTokenInstance}`, {
+      await api.post<any>(`/waInstance${_arg.idInstance}/sendMessage/${_arg.apiTokenInstance}`, {
         "chatId": _arg.tel,
         "message": _arg.message
       });
-      console.log(data);
       dispatch(addToChat(_arg.message));
     } catch (error) {
       dispatch(setError(true));
@@ -57,9 +56,10 @@ export const refreshChat = createAsyncThunk<void, { idInstance: string, apiToken
       dispatch(setReceivingNotification(true));
       const { data } = await api.get<any>(`/waInstance${_arg.idInstance}/receiveNotification/${_arg.apiTokenInstance}`);
 
-      if (data && data.body.senderData?.chatId === _arg.tel && data.body.messageData.textMessageData.textMessage) {
+      if (data && data.body.senderData?.chatId === _arg.tel && data.body.messageData.textMessageData?.textMessage) {
         dispatch(addToChat(data.body.messageData.textMessageData.textMessage));
       }
+
       await api.delete<any>(`/waInstance${_arg.idInstance}/deleteNotification/${_arg.apiTokenInstance}/${data.receiptId}`);
     } catch (error) {
       console.log(error);

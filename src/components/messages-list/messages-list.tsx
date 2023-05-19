@@ -16,21 +16,14 @@ function MessagesList() {
     //   (user && tel) && dispatch(refreshChat({idInstance: user.idInstance, apiTokenInstance: user.apiTokenInstance, tel: tel}));
     //   console.log('dispatch');
     // }, 5000);
+
+    // testing variant
     if (!notificationIsReceiving) {
       (user && tel) && dispatch(refreshChat({idInstance: user.idInstance, apiTokenInstance: user.apiTokenInstance, tel: tel}));
     }
 
     // return () => clearInterval(interval);
-  }, [notificationIsReceiving])
-
-  // const handleSubmit = (e: React.SyntheticEvent) => {
-  //   e.preventDefault();
-  //   const target = e.target as typeof e.target & {
-  //     tel: { value: string };
-  //   };
-  //   console.log('hi', target.tel.value);
-  //   dispatch(setTel(`${target.tel.value}@c.us`));
-  // };
+  }, [notificationIsReceiving, chat])
 
   return (
     <>
